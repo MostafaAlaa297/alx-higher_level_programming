@@ -1,0 +1,20 @@
+#!/bin/bash
+PYFILE="$PYFILE"
+OUTPUT_FILE="${PYFILE}c"
+
+if [ -z "$PYFILE" ]; then
+	echo "Error: PYFILE env var is not set."
+	exit 1
+fi
+
+echo "Compiling $PYFILE ..."
+
+python3 -m py_compile "$PYFILE"
+
+if [ ! -f "__pychache__/$OUTPUT_FILE" ]; then
+	mv "__pychache__/$OUTPUT_FILE" .
+
+	echo "Compilation successful! Output filename: $OUTPUT_FILE"
+else
+	"Compilation failed!"
+fi

@@ -1,5 +1,2 @@
 #!/bin/bash
-
-PYFILE=$PYFILE
-
-python3 "$PYFILE"
+PYFILE=$PYFILE && python3 "$PYFILE"

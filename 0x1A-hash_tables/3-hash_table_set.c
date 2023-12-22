@@ -18,19 +18,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_element, *current;
 
 	if (ht == NULL || key == NULL || *key == '\0')
-	{
-		printf("Invalid input parameters\n");
 		return (0);
-	}
 	
 	index = key_index((unsigned char *) key, ht->size);
-	printf("Index: %u\n", index);
 
 	if (index >= ht->size)
-	{
-		printf("Invalid index\n");
 		return (0);
-	}
 
 	current = ht->array[index];
 
@@ -41,10 +34,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			free(current->value);
 			current->value = strdup(value);
 			if (current->value == NULL)
-			{
-				printf("Memory allocation error\n");
 				return (0);
-			}
 			return (1);
 		}
 		current = current->next;
@@ -52,16 +42,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	new_element = malloc(sizeof(hash_node_t));
 	if (new_element == NULL)
-	{
-		printf("Memory allocation error\n");
 		return (0);
-	}
 
 	new_element->key = strdup(key);
 	new_element->value = strdup(value);
 	if (new_element->key == NULL || new_element->value == NULL)
 	{
-		printf("Memory allocation error\n");
 		free(new_element->key);
 		free(new_element);
 		return (0);

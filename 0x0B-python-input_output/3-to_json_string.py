@@ -4,8 +4,8 @@
 file I/O module
 ===============
 """
+import json
 def to_json_string(my_obj):
-    import json
     """
     return JSON of an object
     """

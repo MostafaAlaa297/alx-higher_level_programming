@@ -47,10 +47,26 @@ class Base:
         """create dummy instance and set it the return it"""
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
-        elif cls__name__ == "Square":
+        elif cls.__name__ == "Square":
             dummy = cls(1)
         else:
             return None
         dummy.update(**dictionary)
         return dummy
+    
+    @classmethod
+    def load_from_file(cls):
+        filename = "{}.json".format(cls.__name__)
+
+        try:
+            with open("{}.json".format(cls.__name__), "r") as file:
+                json_string = file.read()
+        except FileNotFoundError:
+            return []
+
+        obj_list = cls.from_json_string(json_string)
+        instance_list = [cls.create(**obj) for obj in obj_list]
         
+        return instance_list
+
+

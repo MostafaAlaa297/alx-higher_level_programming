@@ -97,14 +97,15 @@ class Rectangle(Base):
     
     def to_dictionary(self):
         """Convert square to dictionary"""
-        square_dict = {
+        rectangle_dict = {
                 "id": self.id,
-                "size": self.size,
-                "x": self.x,
-                "y": self.y
+                "width": self.__width,
+                "height": self.__height,
+                "x": self.__x,
+                "y": self.__y
         }
 
-        return square_dict
+        return rectangle_dict
 
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)

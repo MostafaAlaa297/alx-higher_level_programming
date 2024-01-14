@@ -94,7 +94,17 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+    
+    def to_dictionary(self):
+        """Convert square to dictionary"""
+        square_dict = {
+                "id": self.id,
+                "size": self.size,
+                "x": self.x,
+                "y": self.y
+        }
 
+        return square_dict
 
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)

@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-================
 rectangle module
-================
 """
 
 from .base import Base
@@ -18,6 +16,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """width of the rectangle"""
         return self.__width
     
     @width.setter
@@ -31,6 +30,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """height of the rectangle"""
         return self.__height
 
     @height.setter
@@ -44,6 +44,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """x of the rectangle"""
         return self.__x
 
     @x.setter
@@ -57,6 +58,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """y of the rectangle"""
         return self.__y
 
     @y.setter
@@ -69,9 +71,11 @@ class Rectangle(Base):
             self.__y = value
     
     def area(self):
+        """area of the rectangle"""
         return self.__width * self.__height
     
     def display(self):
+        """display method of the rectangle"""
         if self.__y > 0:
             for _ in range(self.__y):
                 print()
@@ -80,6 +84,7 @@ class Rectangle(Base):
             print(result)
 
     def update(self, *args, **kwargs):
+        """the update method"""
         if args:
             if len(args) > 0:
                 self.id = args[0]
@@ -108,4 +113,5 @@ class Rectangle(Base):
         return rectangle_dict
 
     def __str__(self):
+        """returns info about the rectangle"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)

@@ -50,7 +50,7 @@ class Base:
         elif cls.__name__ == "Square":
             dummy = cls(1)
         else:
-            return None
+            raise ValueError("Unknown class name: {}".format(cls.__name__))
         dummy.update(**dictionary)
         return dummy
     
@@ -65,8 +65,7 @@ class Base:
             return []
 
         obj_list = cls.from_json_string(json_string)
+
         instance_list = [cls.create(**obj) for obj in obj_list]
         
         return instance_list
-
-

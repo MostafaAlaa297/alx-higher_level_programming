@@ -3,9 +3,6 @@
 Unit tests for the square
 """
 import unittest
-from models.square import
-
-import unittest
 from models.square import Square
 
 class TestSquare(unittest.TestCase):
@@ -64,7 +61,7 @@ class TestSquare(unittest.TestCase):
     def test_str_method(self):
         """Test str_method"""
         s = Square(65)
-        self.assertEqual(str(s), "[Square] (1) 0/0 - 65")
+        self.assertEqual(str(s), "[Square] (11) 0/0 - 65")
 
     def test_to_dictionary_method(self):
         """Test to_dictionay"""

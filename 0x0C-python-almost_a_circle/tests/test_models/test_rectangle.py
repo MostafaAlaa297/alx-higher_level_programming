@@ -6,6 +6,7 @@ Unit tests for the rectangle module
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
     """test cases for the rectangle module"""
     def test_attributes(self):
@@ -23,12 +24,12 @@ class TestRectangle(unittest.TestCase):
             r = Rectangle(-5, 5, 2, 7, 1)
     
     def test_invalid_height(self):
-        """Test incalid heghit"""
+        """Test incalid height"""
         with self.assertRaises(ValueError):
-            r = Rectangle(10, 0, 2, 7, 1)
+            r = Rectangle(10, -5, 2, 7, 1)
 
     def test_invalid_x(self):
-        """Test invalid x""":
+        """Test invalid x"""
         with self.assertRaises(ValueError):
             r = Rectangle(10, 5, -2, 7, 1)
 

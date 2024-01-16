@@ -7,15 +7,15 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
-    '''Tests the Base class.'''
+    """Tests the Base class."""
 
     def setUp(self):
-        '''Imports module, instantiates class'''
+        """Imports module, instantiates class"""
         Base._Base__nb_objects = 0
         pass
 
     def tearDown(self):
-        '''Cleans up after each test_method.'''
+        """Cleans up after each test_method."""
         pass
     
     def test_to_json_string_empty_list(self):
@@ -53,4 +53,3 @@ class TestBase(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -8,9 +8,13 @@ base module
 import json
 
 class Base:
+    """
+    the base class
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initialization of the base module"""
         if id is not None:
             self.id = id
         else:
@@ -19,12 +23,14 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """convert list to json string"""
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
+        """convert json string to dictionary"""
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
@@ -44,6 +50,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """save to file"""
         if list_objs is None:
             list_objs = []
 
@@ -54,12 +61,14 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """create instances from a dictionary"""
         dummy = cls(1)  # Assuming default values, update as needed
         dummy.update(**dictionary)
         return dummy
 
     @classmethod
     def load_from_file(cls):
+        """create instance list from json file"""
         filename = "{}.json".format(cls.__name__)
 
         try:

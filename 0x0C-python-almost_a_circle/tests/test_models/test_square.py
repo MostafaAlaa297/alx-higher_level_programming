@@ -4,9 +4,18 @@ Unit tests for the square
 """
 import unittest
 from models.square import Square
+from models.base import Base
 
 class TestSquare(unittest.TestCase):
     """Test square class"""
+    def setUp(self):
+        '''Imports module, instantiates class'''
+        Base._Base__nb_objects = 0
+
+    def tearDown(self):
+        '''Cleans up after each test_method.'''
+        pass
+
     def test_default_id_increment(self):
         s1 = Square(5)
         s2 = Square(10)
@@ -61,13 +70,13 @@ class TestSquare(unittest.TestCase):
     def test_str_method(self):
         """Test str_method"""
         s = Square(65)
-        self.assertEqual(str(s), "[Square] (11) 0/0 - 65")
+        self.assertEqual(str(s), "[Square] ({}) 0/0 - 65".format(s.id))
 
     def test_to_dictionary_method(self):
         """Test to_dictionay"""
-        s = Square(70, 5, 10, 1)
+        s = Square(70, 20, 5, 10, 1)
         dictionary = s.to_dictionary()
-        expected_dict = {'id': 1, 'size': 70, 'x': 5, 'y': 10}
+        expected_dict = {'id': 1, 'width': 70, 'height': 20, 'x': 5, 'y': 10}
         self.assertEqual(dictionary, expected_dict)
 
 if __name__ == "__main__":

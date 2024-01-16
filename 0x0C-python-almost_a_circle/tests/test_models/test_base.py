@@ -1,9 +1,23 @@
 #!/usr/bin/python3
 import unittest
 from models.base import Base
+from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+
 
 class TestBase(unittest.TestCase):
+    '''Tests the Base class.'''
 
+    def setUp(self):
+        '''Imports module, instantiates class'''
+        Base._Base__nb_objects = 0
+        pass
+
+    def tearDown(self):
+        '''Cleans up after each test_method.'''
+        pass
+    
     def test_to_json_string_empty_list(self):
         self.assertEqual(Base.to_json_string([]), "[]")
 

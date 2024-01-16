@@ -8,8 +8,10 @@ class Square(Rectangle):
     """
     Square class inherits from Rectangle
     """
-     __nb_objects = 0
+    __nb_objects = 0
+
     def __init__(self, size, x=0, y=0, id=None):
+        """Initialize the square module"""
         super().__init__(size, size, x, y, id)
 
     @property

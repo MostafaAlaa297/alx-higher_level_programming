@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-=============
 square module
-=============
 """
 from models.rectangle import Rectangle
 
@@ -25,6 +23,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """update method of the square"""
         if args:
             if len(args) > 0:
                 self.id = args[0]
@@ -38,8 +37,6 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-
-
-
     def __str__(self):
+        """returns info about the square"""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)

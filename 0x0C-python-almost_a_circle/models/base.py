@@ -33,6 +33,15 @@ class Base:
         """Return the dictionary representation of the instance."""
         return {"id": self.id}
 
+    def update(self, *args, **kwargs):
+        """Update the attributes of the instance."""
+        if args:
+            if len(args) > 0:
+                self.id = args[0]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
     @classmethod
     def save_to_file(cls, list_objs):
         if list_objs is None:

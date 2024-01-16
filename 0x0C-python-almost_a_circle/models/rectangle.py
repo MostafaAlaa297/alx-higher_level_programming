@@ -5,6 +5,7 @@ rectangle module
 
 from .base import Base
 
+
 class Rectangle(Base):
     """Rectangle class"""
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -19,7 +20,7 @@ class Rectangle(Base):
     def width(self):
         """width of the rectangle"""
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         """width setter"""
@@ -74,11 +75,11 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = value
-    
+
     def area(self):
         """area of the rectangle"""
         return self.__width * self.__height
-    
+
     def display(self):
         """display method of the rectangle"""
         if self.__y > 0:
@@ -104,7 +105,7 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-    
+
     def to_dictionary(self):
         """Convert square to dictionary"""
         rectangle_dict = {
@@ -119,4 +120,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """returns info about the rectangle"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        id = self.id
+        x = self.x
+        y = self.y
+        width = self.width
+        height = self.height
+        return f"[Rectangle] ({id}) {x}/{y} - {width}/{height}"

@@ -2,7 +2,7 @@
 
 const x = process.argv[2];
 
-if (!x) {
+if (!Number.isInteger(parseInt(x)) || x < 1) {
   console.log('Missing size');
 } else {
   for (let i = 0; i < x; i++) {

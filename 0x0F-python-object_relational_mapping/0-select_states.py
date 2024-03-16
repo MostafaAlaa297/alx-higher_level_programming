@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-import MySQLdb
-import sys
-
 """
 Get state ids and names
 """
+
+import MySQLdb
+import sys
 
 
 def main():

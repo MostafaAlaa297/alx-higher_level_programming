@@ -22,8 +22,7 @@ def main():
 
     cur = conn.cursor()
 
-    cur.execute(
-    """
+    cur.execute("""
     SELECT cities.id, cities.name, states.name
     FROM cities
     JOIN states ON cities.state_id=states.id

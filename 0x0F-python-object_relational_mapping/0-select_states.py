@@ -1,12 +1,38 @@
+#!/usr/bin/python3
+
 import MySQLdb
 import sys
 
-conn = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3], host="localhost", port=3306)
+"""
+Get state ids and names
+"""
 
-cur = conn.cursor()
 
-cur.execute("SELECT id, name FROM states ORDER BY states.id ASC")
+def main():
+    """
+    Main funtion
+    """
+    conn = MySQLdb.connect(
+            user=sys.argv[1],
+            passwd=sys.argv[2],
+            db=sys.argv[3],
+            host="localhost",
+            port=3306
+            )
 
-rows = cur.fetchall()
+    cur = conn.cursor()
 
-cur.close()
+    cur.execute("""SELECT id, name FROM states ORDER BY id ASC""")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+        print(row)
+
+    cur.close()
+    conn.close()
+
+    
+
+if __name__ == '__main__':
+    main()

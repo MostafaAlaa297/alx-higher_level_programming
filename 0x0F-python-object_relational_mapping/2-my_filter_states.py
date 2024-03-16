@@ -25,9 +25,9 @@ def main():
     cur.execute("""
             SELECT id, name
             FROM states
-            WHERE name = %s
+            WHERE name = '{}'
             ORDER BY id ASC;
-            """, (sys.argv[4],))
+            """.format(sys.argv[4].strip('')))
 
     rows = cur.fetchall()
 

@@ -25,9 +25,9 @@ def main():
     cur.execute("""
             SELECT id, name
             FROM states
-            WHERE name LIKE BINARY'{}'
+            WHERE name LIKE BINARY %s
             ORDER BY id ASC;
-            """.format(sys.argv[4].strip('')))
+            """, (sys.argv[4],))
 
     rows = cur.fetchall()
 

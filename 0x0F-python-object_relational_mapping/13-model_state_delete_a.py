@@ -20,12 +20,13 @@ def main():
             )
     Base.metadata.create_all(engine)
 
-    my_session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=engine)
 
-    session = my_session()
+    session = Session()
 
-    rows = session.query(State).filter(State.name.like("%a%"))
-    .delete(synchronize_session=False)
+    rows = session.query(State).filter(
+            State.name.like("%a%")
+            ).delete(synchronize_session=False)
 
     session.commit()
 

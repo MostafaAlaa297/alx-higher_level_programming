@@ -26,8 +26,8 @@ def main():
 
     rows = session.query(State).order_by(State.id).all()
 
-    for i, row in enumerate(rows, 1):
-        print("{}: {}".format(i, row.name))
+    for row in rows:
+        print("{}: {}".format(row.id, row.name))
 
     session.close()
 

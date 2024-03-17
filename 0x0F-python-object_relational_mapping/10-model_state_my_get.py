@@ -24,7 +24,7 @@ def main():
 
     session = my_session()
 
-    row = session.query(State).filter(State.name==sys.argv[4]).first()
+    row = session.query(State).filter(State.name == sys.argv[4]).first()
 
     if (row):
         print("{}".format(row.id))

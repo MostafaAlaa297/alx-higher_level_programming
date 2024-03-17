@@ -25,7 +25,6 @@ def main():
     session = my_session()
 
     state = session.query(State).filter(State.id == 2).first()
-    
     state.name = "New Mexico"
 
     session.commit()

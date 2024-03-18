@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Get state ids and names
+Fetch City objects by State
 """
 
 from model_state import Base, State
@@ -18,7 +18,7 @@ def main():
     engine = create_engine(
             'mysql+mysqldb://{}:{}@localhost:3306/{}'
             .format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True
-            )
+    )
     Base.metadata.create_all(engine)
 
     my_session = sessionmaker(bind=engine)

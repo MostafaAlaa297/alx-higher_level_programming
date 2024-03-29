@@ -10,15 +10,16 @@ if __name__ == "__main__":
         q = ""
     else:
         q = sys.argv[1]
-    url = 'https://alx-intranet.hbtn.io/status'
+
+    url = 'http://0.0.0.0:5000/search_user'
     data = {'q': q}
-    res = requests.post(url, data = data)
+    res = requests.post(url, data=data)
 
     try:
-        data = respoonse.json()
+        data = res.json()
         if data:
             print("[{}] {}".format(data.get('id'), data.get('name')))
         else:
             print("No result")
-     except ValueError:
+    except ValueError:
         print("Not a valid JSON")

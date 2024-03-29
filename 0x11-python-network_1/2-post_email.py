@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-import urllib.parse
-import urllib.request
-import sys
 """
 Status Module
 """
@@ -16,7 +13,7 @@ if __name__ == "__main__":
     payload = {'email': email}
     payload = urllib.parse.urlencode(payload)
     payload = payload.encode('ascii')
-    #req = iurllib.request.Request(url, payload)
+    req = urllib.request.Request(url, payload)
 
     with urllib.request.urlopen(url, payload) as response:
         print("Your email is:", email)

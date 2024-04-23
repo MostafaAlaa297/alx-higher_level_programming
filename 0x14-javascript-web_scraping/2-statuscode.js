@@ -8,6 +8,6 @@ request(input[2], function (error, response) {
     console.error(error);
     process.exit(1);
   } else {
-  	console.log(`code: ${response.statusCode}`);
+    console.log(`code: ${response.statusCode}`);
   }
 });

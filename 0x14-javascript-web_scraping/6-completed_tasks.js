@@ -1,9 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
-const fs = require('fs');
 const url = process.argv[2];
-const file = process.argv[3];
 
 request(url, function (error, response, body) {
   if (error) {
@@ -13,11 +11,13 @@ request(url, function (error, response, body) {
     console.error(`Received code status: ${response.statusCode}`);
     process.exit(1);
   } else {
-    fs.writeFile(file, body, (err) => {
-      if (err) {
-        console.error(err);
-        process.exit(1);
+    const tasks = JSON.parse(body);
+    let complete = {}
+    for (const task of tasks) {
+      if (task.completed) {
+        complete[task.userId] = (complete[task.userId] || 0) + 1;
+	}
       }
-    });
-  }
+      console.log(complete);
+    }
 });

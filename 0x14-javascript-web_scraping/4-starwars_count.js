@@ -15,9 +15,9 @@ request(url, function (error, response, body) {
     let count = 0;
 
     for (const film of films.results) {
-	if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-		count++;
-	}
+      if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+        count++;
+      }
     }
 
     // Print the title of the movie
